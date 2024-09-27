@@ -4,6 +4,6 @@ Data Cleaning & Processing: used pandas to clean and manipulate the data from a 
 
 Skill Extraction: Using spaCy and its PhraseMatcher tool, you built a skill extraction system. A predefined list of skills was used to match and extract skills from the job descriptions (Requirements column) and stored them in a new column.
 
-Visualization: You created several visualizations using matplotlib and seaborn to display common job titles, companies with the most listings, and the most in-demand skills.
+Visualization: created several visualizations using matplotlib and seaborn to display common job titles, companies with the most listings, and the most in-demand skills.
 
 Saving Results: You exported the cleaned and analyzed data into CSV and Excel files, and saved graphs as PNG files.
