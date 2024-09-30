@@ -12,7 +12,14 @@ df['Requirement'].fillna('N/A',inplace= True)
 
 df['Timings'].fillna('N/A', inplace=True)
 df['Timings']= df['Timings'].replace("Permanent","Full-Time")
-print(df.info())
+# print(df.info())
+
+
+for i in df['salary_package']:
+    import pdb
+    pdb.set_trace()
+    print(i)
+
 
 
 # df.to_csv("all_cleaned.csv",index=False, encoding='utf-8-sig')
