@@ -12,12 +12,6 @@ nlp = spacy.load("en_core_web_sm")
 
 df = pd.read_csv('new_all_cleaned.csv')
 
-# print(df.info())
-
-# print(df.isnull().sum())
-
-# print(df.describe())
-# print(df.describe(include=['object']))
 
 df['Company-Name'] = df['Company-Name'].str.upper()
 
@@ -163,14 +157,14 @@ patterns = [nlp(city) for city in cities_list]
 matcher.add("Cities", None, *patterns)
 
 replace_dict = {
-    r",Other": "Bengaluru",   # Comma replacement
-    r"\+": " ",               # Escape '+' in regex
-    r"-": " ",                # Hyphen replacement
-    r"India": "Remote",       # Replace 'India' with 'Remote'
-    r"All India": "Gurugram", # Replace 'All India'
-    r"/": " ",                # Replace '/' with space
-    r"\(": " ",               # Escape '('
-    r"\)": " ",               # Escape ')'
+    r",Other": "Bengaluru",   
+    r"\+": " ",               
+    r"-": " ",
+    r"India": "Remote",       
+    r"All India": "Gurugram",
+    r"/": " ",                
+    r"\(": " ",               
+    r"\)": " ",               
     r"Hybrid": "Bengaluru"
 }
 
@@ -223,7 +217,6 @@ plt.show()
 
 
 bengaluru_jobs = df[df['Locations'].str.contains('Bengaluru', case=False, na=False)]
-
 job_counts = bengaluru_jobs['Title'].value_counts().nlargest(10) 
 
 plt.figure(figsize=(10, 6))
@@ -237,7 +230,6 @@ plt.show()
 
 
 bengaluru_jobs = df[df['Locations'].str.contains('Remote', case=False, na=False)]
-
 job_counts = bengaluru_jobs['Title'].value_counts().nlargest(10) 
 
 plt.figure(figsize=(10, 6))
@@ -249,10 +241,12 @@ plt.tight_layout()
 plt.savefig(os.path.join(graph_dir, 'Remote-top-10-jobs.png'), bbox_inches='tight')
 plt.show()
 
-columns_to_delete = ['Location', 'Requirement', 'original-titles', 'skills_split']
+columns_to_delete = ['Location', 'Requirement', 'original-titles', 'skills_split','Experience']
 df = df.drop(columns=columns_to_delete)
 
-
+for column in df.columns:
+    if df[column].dtype == 'object':  # Check if the column is non-numeric
+        df[column].fillna("N/A", inplace=True)
 
 df.to_csv("analyzed_data.csv", index=False)
 

@@ -13,7 +13,7 @@ df['Company-Name'] = df['Company-Name'].str.upper()
 title_mappings = {
     r'(?i)mechanical': 'Mechanical Engineering',
     r'(?i)electrical|electronic': 'Electrical Engineering',
-    r'(?i)developer|software|python|it|ai/ml|cloud|oracle|web|linux|devops|data\s+scientist|angular|database|azure|sql|c\+\+|backend|frontend|ios|android|mongodb|iot|java|aws|node\.js|express\.js|mern|ui/ux': 'Software Developer',
+    r'(?i)developer|software|python|it|ai/ml|cloud|oracle|web|linux|devops|data\s+scientist|angular|database|azure|sql|c\+\+|backend|frontend|ios|android|mongodb|iot|java|aws|node\.js|express\.js|mern|ui/ux|.NET|data|application|stack|ai|ml': 'Software Developer',
     r'(?i)business': 'Business Development',
     r'(?i)account': 'Account Manager',
     r'(?i)b2b|sales': 'Sales Manager',
