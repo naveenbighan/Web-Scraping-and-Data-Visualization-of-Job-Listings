@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Data Results</title>
+    <style>
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <h2>Charts</h2>
+        {% for path in chart_paths.values() %}
+            <img src="{{ path }}" alt="Chart">
+        {% endfor %}
+        <h2>Download Filtered Data</h2>
+        <a href="{{ url_for('download_csv') }}">Download CSV</a>
+    {% endif %}
+    <a href="/">Go back</a>
+</body>
+</html>
